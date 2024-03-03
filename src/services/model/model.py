@@ -10,7 +10,6 @@ from loguru import logger
 from PIL import Image, ImageEnhance
 from PIL.Image import Image as TImage
 from polars import DataFrame, read_csv
-from pydantic import BaseModel
 from torch import nn
 from torch._prims_common import DeviceLikeType
 from torch.optim import AdamW
@@ -29,15 +28,10 @@ from torchvision.transforms import (
     ToTensor,
 )
 
+from src.clients.schemas.model.model import BirdSpeciePrediction, Prediction
 
-class BirdSpeciePrediction(BaseModel):
-    specie_name: str
-    score: float
-
-
-class Prediction(BaseModel):
-    specie: BirdSpeciePrediction | None = None
-    top_k: list[BirdSpeciePrediction] = list()
+Datasets = Literal["train", "test", "valid"]
+Devices = Literal["cpu", "cuda"]
 
 
 class DEITTinyModel(nn.Module):
@@ -48,10 +42,6 @@ class DEITTinyModel(nn.Module):
             "deit_tiny_patch16_224",
             pretrained=True,
         )
-
-
-Datasets = Literal["train", "test", "valid"]
-Devices = Literal["cpu", "cuda"]
 
 
 class ModelService:
