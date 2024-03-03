@@ -171,7 +171,7 @@ ruff check --fix .
 ruff format .
 ```
 
-### 11. To Do
+### 12. To Do
 
 - [ ] Improve model accuracy
 - [ ] Improve typing support with implemented `pytorch` logic
