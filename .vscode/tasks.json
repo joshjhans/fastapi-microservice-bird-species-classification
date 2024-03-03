@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "icon": {
+        "color": "terminal.ansiGreen",
+        "id": "pass-filled"
+      },
+      "type": "process",
+      "label": "terminal",
+      "command": "/bin/bash",
+      "isBuildCommand": true,
+      "isBackground": true,
+      "options": {
+        "cwd": "/bird-species-image-classification/src"
+      },
+      "runOptions": {
+        "runOn": "default",
+        "instanceLimit": 1
+      }
+    }
+  ]
+}

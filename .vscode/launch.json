@@ -1,0 +1,12 @@
+{
+  "version": "0.0.0",
+  "configurations": [
+    {
+      "name": "Python: Bird Species Image Classification",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "python",
+      "args": ["manage.py", "runserver"]
+    }
+  ]
+}

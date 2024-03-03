@@ -1,0 +1,86 @@
+[build-system]
+requires = ["hatchling >= 1.13.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bird-species-image-classification"
+description = "Bird Species Image Classification"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [
+    { name = "Joshua Hanson", email = "joshjhans@gmail.com" },
+]
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: AsyncIO",
+    "Framework :: FastAPI",
+    "Framework :: Pydantic",
+    "Framework :: Pydantic :: 2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = [
+    "starlette>=0.36.3,<0.37.0",
+    "pydantic>=1.7.4,!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0",
+    "typing-extensions>=4.8.0",
+]
+dynamic = ["version"]
+
+[project.urls]
+Repository = "https://github.com/tiangolo/fastapi"
+
+[project.optional-dependencies]
+all = [
+    "httpx >=0.23.0",
+    "jinja2 >=2.11.2",
+    "python-multipart >=0.0.7",
+    "itsdangerous >=1.1.0",
+    "pyyaml >=5.3.1",
+    "ujson >=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0",
+    "orjson >=3.2.1",
+    "email_validator >=2.0.0",
+    "uvicorn[standard] >=0.12.0",
+    "pydantic-settings >=2.0.0",
+    "pydantic-extra-types >=2.0.0",
+]
+
+[tool.hatch.version]
+path = "fastapi/__init__.py"
+
+[tool.mypy]
+strict = true
+
+[tool.pytest.ini_options]
+addopts = [
+  "--strict-config",
+  "--strict-markers",
+  "--ignore=docs_src",
+  "-p no:warnings",
+]
+filterwarnings = []
+
+[tool.coverage.run]
+parallel = true
+source = []
+omit = []
+
+[tool.ruff]
