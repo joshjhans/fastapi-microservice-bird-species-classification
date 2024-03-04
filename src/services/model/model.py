@@ -215,7 +215,10 @@ class ModelService:
         np.random.shuffle(order)
 
         enhancers: list[
-            tuple[Callable[[TImage, float], TImage], Callable[[], float]]
+            tuple[
+                Callable[[TImage, float], TImage],
+                Callable[[], float],
+            ]
         ] = [
             (self.color_enhance, lambda: np.random.normal(1.0, 0.3)),
             (self.contrast_enhance, lambda: np.random.normal(1.0, 1.0)),
@@ -224,7 +227,7 @@ class ModelService:
         ]
         for i in order:
             enhancer, factor = enhancers[i]
-            image = enhancer(image, factor)  # type: ignore
+            image = enhancer(image, factor())  # type: ignore
 
         assert isinstance(image, TImage)
 
@@ -232,7 +235,7 @@ class ModelService:
 
     def train_model(
         self,
-        num_epochs: int = 1,
+        num_epochs: int = 10,
         save_model: bool = True,
     ) -> DEITTinyModel:
         model: DEITTinyModel = self.get_model()

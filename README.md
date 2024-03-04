@@ -14,6 +14,8 @@ This project utilizes [pytorch](https://github.com/pytorch/pytorch) to train and
 - A [VS Code development container configuration](https://code.visualstudio.com/docs/devcontainers/containers) which is the recommended method for developing this project.
 - Nearly complete type annotations
 - Pydantic for type validation and JSON serialization
+- Prometheus HTTP instrumentation provided by [prometheus-fastapi-instrumentator](https://github.com/trallnag/prometheus-fastapi-instrumentator)
+- A PyTorch model based on [facebookresearch/deit](https://github.com/facebookresearch/deit); note that `deit` is an Apache-2.0 license; see the [deit LICENSE](https://github.com/facebookresearch/deit/blob/main/LICENSE) for more details
 
 This project is inspired by the following repositories:
 
@@ -82,6 +84,8 @@ Execute the following command in the `./src` directory to train the model:
 ```bash
 python manage.py train-model
 ```
+
+![Train Model](src/docs/static/train-model.png)
 
 ### 7. Set environment variables
 
@@ -179,3 +183,6 @@ ruff format .
 - [ ] Expand test coverage and add unit tests
 - [ ] Change how model is loaded and unloaded to improve performance and resource consumption
 - [ ] Resolve `pytest` warnings from `httpx` and `pytorch`; update `pyproject.toml` `[tool.pytest.ini_options]`
+- [ ] Use [`rich`](https://typer.tiangolo.com/tutorial/progressbar/) to display progress bar while training and validating model
+- [ ] Fix `Makefile`
+- [ ] Test `test`, `stage`, and `prod` Docker builds with `Makefile`
