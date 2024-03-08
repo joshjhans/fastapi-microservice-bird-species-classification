@@ -99,7 +99,7 @@ PASSWORD=changeme
 
 These variables are used as follows:
 
-- `APP_ENV`: specifies the app environment; valid values include `devl`, `test`, `stage`, and `test` which correspond to the corresponding settings classes in `./src/settings/environments`
+- `APP_ENV`: specifies the app environment; valid values include `devl`, `test`, `stage`, and `prod` which correspond to the corresponding settings classes in `./src/settings/environments`
 - `USERNAME`: the basic authentication username used to secure the `/models/predict` endpoint
 - `PASSWORD`: the basic authentication password used to secure the `/models/predict` endpoint
 
