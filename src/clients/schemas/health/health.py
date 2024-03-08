@@ -1,3 +1,5 @@
+from typing import Literal
+
 from src.clients.schemas.base import AppBaseModel
 
 
@@ -6,4 +8,4 @@ class HealthSchema(AppBaseModel):
 
 
 class PingSchema(AppBaseModel):
-    response: str = "pong"
+    response: Literal["pong"] = "pong"
